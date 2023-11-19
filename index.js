@@ -1,6 +1,9 @@
 import fs from 'fs';
 import http from 'http';
 import url from 'url';
+
+import slugify from 'slugify';
+
 import replaceTemplate from './modules/replace-template.js';
 
 /////////////////////////////////
@@ -18,9 +21,20 @@ const tempProduct = fs.readFileSync(
 const data = fs.readFileSync('./dev-data/data.json', 'utf-8');
 const dataObj = JSON.parse(data);
 
+// 3rd Party Module
+/*
+dataObj.map((el) =>
+  console.log(
+    slugify(el.productName, {
+      replacement: '-',
+      lower: true,
+    })
+  )
+);
+*/
+
 /////////////////////////////////
 // SERVER
-
 const server = http.createServer((req, res) => {
   const { query, pathname: pathName } = url.parse(req.url, true);
 
