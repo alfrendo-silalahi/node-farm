@@ -2,7 +2,7 @@ import fs from 'fs';
 import http from 'http';
 import url from 'url';
 
-import slugify from 'slugify';
+// import slugify from 'slugify';
 
 import replaceTemplate from './modules/replace-template.js';
 
