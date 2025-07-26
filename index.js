@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import fsPromises from 'node:fs/promises';
 import http from 'node:http';
 import url from 'node:url';
 
@@ -19,6 +20,11 @@ const tempProduct = fs.readFileSync(
 );
 
 const data = fs.readFileSync('./dev-data/data.json', 'utf-8');
+
+// using fs promises
+const data2 = await fsPromises.readFile('./dev-data/data.json', 'utf-8');
+console.log('data with fs promises', data2);
+
 const dataObj = JSON.parse(data);
 
 // 3rd Party Module
